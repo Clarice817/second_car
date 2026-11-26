@@ -1,0 +1,21 @@
+{
+    // 需要安装 Cortex-Debug 扩展；调试器默认按 ST-Link 写，用 DAPLink/J-Link 改下面 configFiles
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "OpenOCD 调试",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/Debug/second_car.elf",
+            "servertype": "openocd",
+            "device": "STM32F103C8",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32f1x.cfg"
+            ],
+            "runToEntryPoint": "main",
+            "preLaunchTask": "2. 编译 (Debug)"
+        }
+    ]
+}
